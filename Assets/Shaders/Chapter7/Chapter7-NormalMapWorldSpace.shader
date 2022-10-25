@@ -69,11 +69,13 @@ Shader "Unity Shaders Book/Chapter 7/Normal Map In World Space"
                 // 世界空间下的顶点位置
                 float3 worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
 
-                // 世界空间下的顶点法线 副切线 和法线
+                // 世界空间下的法线 切线 和副切线
                 fixed3 worldNormal = UnityObjectToWorldNormal(v.normal);
                 fixed3 worldTangent = UnityObjectToWorldDir(v.tangent.xyz);
                 fixed3 worldBinormal = cross(worldNormal, worldTangent) * v.tangent.w;
 
+
+                // 切线空间到世界空间 的变换矩阵
                 o.TtoW0 = float4(worldTangent.x, worldBinormal.x, worldNormal.x, worldPos.x);
                 o.TtoW1 = float4(worldTangent.y, worldBinormal.y, worldNormal.y, worldPos.y);
                 o.TtoW2 = float4(worldTangent.z, worldBinormal.z, worldNormal.z, worldPos.z);
@@ -93,7 +95,7 @@ Shader "Unity Shaders Book/Chapter 7/Normal Map In World Space"
                 bump.xy *= _BumpScale;
                 bump.z = sqrt(1.0 - saturate(dot(bump.xy, bump.xy)));
 
-                // 使用点乘操作 实现矩阵 每一行和法线相乘 实现 把法线变换到世界空间下
+                // 使用点乘操作 实现矩阵 每一行和法线相乘 实现 把法线从切线空间变换到世界空间下
                 bump = normalize(half3(dot(i.TtoW0.xyz, bump), dot(i.TtoW1.xyz, bump), dot(i.TtoW2.xyz, bump)));
 
 

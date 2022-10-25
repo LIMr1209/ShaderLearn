@@ -2,23 +2,37 @@
 
 ## Unity内置矩阵（float4x4）
 
-UNITY_MATRIX_MVP        当前模型 视图 投影 矩阵
-UNITY_MATRIX_MV           当前模型 视图 矩阵
-UNITY_MATRIX_V              当前视图矩阵。
-UNITY_MATRIX_P              目前的投影矩阵
-UNITY_MATRIX_VP            当前视图 投影 矩阵
-UNITY_MATRIX_T_MV       模型*视图*转 矩阵
-UNITY_MATRIX_IT_MV      模型*视图*逆 转 矩阵
-UNITY_MATRIX_TEXTURE0   UNITY_MATRIX_TEXTURE3          纹理变换矩阵
+UNITY_MATRIX_MVP 当前模型 * 视图 * 投影矩阵。  
+UNITY_MATRIX_MV 当前模型 * 视图矩阵  
+UNITY_MATRIX_V 当前视图矩阵。  
+UNITY_MATRIX_P 当前投影矩阵。  
+UNITY_MATRIX_VP 当前视图 * 投影矩阵。  
+UNITY_MATRIX_T_MV  模型 * 视图 * 转矩阵  
+UNITY_MATRIX_IT_MV 模型 * 视图 * 逆 转矩阵  
+unity_ObjectToWorld  当前模型矩阵。
+unity_WorldToObject  当前世界矩阵的逆矩阵。
+UNITY_MATRIX_TEXTURE0 UNITY_MATRIX_TEXTURE3 纹理变换矩阵
+
+## 内置着色器变量
+
+unity_WorldToLight  float4x4 世界空间到光源空间矩阵。用于对 cookie 和衰减纹理进行采样。
+_WorldSpaceCameraPos  float4 相机的世界空间位置。
+
+## 时间
+
+_Time float4  t是自该场景加载开始所经过的时间，4个分量的值分别是 （t/20, t, 2t, 3t）
+_SinTime float4 t是时间的正弦值 4个分量的值分别是 （t/8, t/4, t/2, t）
+_CosTime float4 t是时间的余弦值 4个分量的值分别是 （t/8, t/4, t/2, t）
+unity_DeltaTime float4 dt是时间增量 4个分量的值分别是 （dt, 1/dt, smoothDt, 1/smoothDt）
 
 ## CG标准函数库
 
-Cg 标准函数库主要分为五个部分:
-数学函数（Mathematical Functions）
-几何函数(Geometric Functions)
-纹理映射函数(Texture Map Functions)
-偏导数函数(Derivative Functions)
-调试函数(Debugging Function)
+Cg 标准函数库主要分为五个部分:  
+数学函数（Mathematical Functions）  
+几何函数(Geometric Functions)  
+纹理映射函数(Texture Map Functions)  
+偏导数函数(Derivative Functions)  
+调试函数(Debugging Function)  
 
 ### 数学函数（Mathematical Functions）
 
@@ -43,7 +57,7 @@ exp2(x) 计算2x的值
 floor(x) 对输入参数向下取整。例如floor(float(1.3)) 返回的值为1.0；但是 floor(float(-1.3))返回的值为-2.0。
 fmod(x,y) 返回x/y 的余数。如果 y 为 0，结果不可预料
 frexp(x, out exp)  将浮点数 x 分解为尾数和指数，即x = m* 2^exp，返回m，并将指数存入 exp 中；如果 x 为 0，则尾数和指数都返回0
-frac(x) Returns the fractional portion of a scalar or each vector component
+frac(x) 返回标量或每个矢量分量的小数部分
 isfinite(x) 判断标量或者向量中的每个数据是否是有限数，如果是返回true；否则返回false;无限的或者非数据(not-a-number NaN)
 isinf(x) 判断标量或者向量中的每个数据是否是无限，如果是返回 true；否则返回 false;
 isnan(x) 判断标量或者向量中的每个数据是否是非数据(not-a-number NaN)，如果是返回true；否则返回false;
@@ -54,8 +68,8 @@ lit(NdotL,NdotH, m)  N表示法向量；L 表示入射光向量；H表示半角�
 函数计算环境光、散射光、镜面光的贡献，返回的 4元向量：
 1.位表示环境光的贡献，总是 1.0；
 2.位代表镜面光的贡献，如果 N •L<0，则为0；否则为 N •L;
-3.位代表镜面光的贡献，如果N •L<0或者 N •H <0 ，则位 0；否则为(N •H)m；
-                                      W位始终位 1.0
+3.位代表镜面光的贡献，如果N •L<0或者 N •H <0 ，则为 0；否则为(N •H)m；
+4.W位始终位 1.0
 log(x)  计算ln(x)的值，x必须大于 0
 log2(x) 计算log(2x)的值，x 必须大于 0
 log10(x)  计算log10(x)的值，x必须大于 0
@@ -66,29 +80,21 @@ min(a,b) 比较两个标量或等长向量元素，返回 小值
 常用
 
 ```
-      modf(x, out ip)	
-      mul(M, N)	计算两个矩阵相乘，如果 M 为 AxB 阶矩阵，N为 BxC阶矩阵，则返回 AxC 阶矩阵。下面两个函数为其重载函数。
-      mul(M, v)	      计算矩阵和向量相乘
-      mul(v, M)	      计算向量和矩阵相乘
-      noise( x)	      噪声函数，返回值始终在 0，1之间；对于同样的输入，始终返回相同的值（也就是说，并不是真正意义上的随机噪声）。
-      pow(x, y)	
-      radians(x)	      函数将角度值转换为弧度值
-      round(x)	      Round-to-nearest，或closest integer to x即四舍五入
-      rsqrt(x)	      X 的反平方根，x必须大于 0
-      saturate(x)	如果 x 小于0，返回 0；如果 x大于 1，返回1；否则，返回x
-      sign(x)	如果 x 大于0，返回 1；如果 x小于 0，返回01；否则返回0。
-      sin(x)	      输入参数为弧度，计算正弦值，返回值范围为[−1,1]
-      sincos(float x, out s, out c)	      该函数是同时计算 x的 sin值和 cos值，其中 s=sin(x)，c=cos(x)。该函数用于“同时需要计算sin 值和cos 值的情况”，比分别运算要快很多!
-      sinh(x)	      计算双曲正弦（hyperbolic sine）值。
-      smoothstep(min, max, x)	值 x 位于min、max区间中。如果 x=min，返回0；如果 x=max，返回 1；如果 x在两者之间，按照下列公式返回数据：
-x−min                  x−min
-−2*()3+3*( )2
-max−min                 max−min
-      step(a, x)	      如果 x<a，返回0；否则，返回1。
-      sqrt(x)	      求 x的平方根， x ，x必须大于 0。
-      tan(x)	      输入参数为弧度，计算正切值
-      tanh(x)	      计算双曲正切值
-      transpose(M)	      M 为矩阵，计算其转置矩阵
+modf(x, out ip)	 返回 x 的小数部分和整数部分
+mul(M, N)	计算两个矩阵相乘，如果 M 为 AxB 阶矩阵，N为 BxC阶矩阵，则返回 AxC 阶矩阵。下面两个函数为其重载函数。
+mul(M, v)	计算矩阵和向量相乘
+mul(v, M)	计算向量和矩阵相乘
+noise(x)	噪声函数，返回值始终在 0，1之间；对于同样的输入，始终返回相同的值（也就是说，并不是真正意义上的随机噪声）。
+pow(x, y)	接受两个参数（基值和幂值），并返回基数的幂
+radians(x)	函数将角度值转换为弧度值
+round(x)	四舍五入
+rsqrt(x)	X 的反平方根，x必须大于 0
+saturate(x)	如果 x 小于0，返回 0；如果 x大于 1，返回1；否则，返回x
+sign(x)	    如果 x 大于0，返回 1；如果 x小于 0，返回01；否则返回0。
+sin(x)	    输入参数为弧度，计算正弦值，返回值范围为[−1,1]
+sincos(float x, out s, out c)	      该函数是同时计算 x的 sin值和 cos值，其中 s=sin(x)，c=cos(x)。该函数用于“同时需要计算sin 值和cos 值的情况”，比分别运算要快很多!
+sinh(x)	   计算双曲正弦（hyperbolic sine）值。
+smoothstep(min, max, x)	在两个值之间执行 Hermite 插值。https://www.jianshu.com/p/53fe928a0fb6 
 ```
 
 ### 几何函数（Geometric Functions）
@@ -100,7 +106,7 @@ normalize函数，对向量进行归一化；reflect函数，计算反射光方�
 
 注：
 
-1. 着色程序中的向量 好进行归一化之后再使用，否则会出现难以预料的错误；
+1. 着色程序中的向量 最好进行归一化之后再使用，否则会出现难以预料的错误；
 2. reflect函数和refract函数都存在以“入射光方向向量”作为输入参数，注意这两个函数中使用的入射光方向向量，是从外指向几何顶点的；平时我们在着色程序中或者在课本上都是将入射光方向向量作为从顶点出发。
 
 | 函数                  |                    功能                    |
@@ -127,12 +133,12 @@ Tex2D(sampler2D tex, float3 sz)                     二维纹理查询，并进�
 Tex2D(sampler2D tex, float3 sz, float2 dsdx,float2 dsdy)  使用导数值（derivatives）查询二维纹理，并进行深度值比较
 Tex2Dproj(sampler2D tex, float3 sq)                 二维投影纹理查询
 Tex2Dproj(sampler2D tex, float4 szq)                二维投影纹理查询，并进行深度值比较
-      texRECT(samplerRECT tex, float2 s)
-      texRECT (samplerRECT tex, float2 s, float2 dsdx, float2 dsdy)
-      texRECT (samplerRECT tex, float3 sz)
-      texRECT (samplerRECT tex, float3 sz, float2 dsdx,float2 dsdy)
-      texRECT proj(samplerRECT tex, float3 sq)
-      texRECT proj(samplerRECT tex, float3 szq)
+texRECT(samplerRECT tex, float2 s)
+texRECT(samplerRECT tex, float2 s, float2 dsdx, float2 dsdy)
+texRECT(samplerRECT tex, float3 sz)
+texRECT(samplerRECT tex, float3 sz, float2 dsdx,float2 dsdy)
+texRECT proj(samplerRECT tex, float3 sq)
+texRECT proj(samplerRECT tex, float3 szq)
 Tex3D(sampler3D tex, float s)                          三维纹理查询
 Tex3D(sampler3D tex, float3 s, float3 dsdx, float3 dsdy)      结合导数值（derivatives）查询三维纹理
 Tex3Dproj(sampler3D tex, float4 szq)                   查询三维投影纹理，并进行深度值比较
@@ -159,27 +165,40 @@ float4 uvproj = uvproj/uvproj.q; tex2D(texture,uvproj);
 3. 函数 ddx和 ddy 返回相邻像素键的属性差值；
 
 
-float3 WorldSpaceViewDir (float4 v)：根据给定的局部空间顶点位置到相机返回世界空间的方向（非规范化的）
-float3 ObjSpaceViewDir (float4 v) - returns object space direction (not normalized) from given object space vertex position towards the camera. 
-float3 ObjSpaceViewDir (float4 v)：根据给定的局部空间顶点位置到相机返回局部空间的方向（非规范化的）
-float2 ParallaxOffset (half h, half height, half3 viewDir) - calculates UV offset for parallax normal mapping. 
-float2 ParallaxOffset (half h, half height, half3 viewDir)：为视差法线贴图计算UV偏移
-fixed Luminance (fixed3 c) - converts color to luminance (grayscale). 
-fixed Luminance (fixed3 c)：将颜色转换为亮度（灰度）
-fixed3 DecodeLightmap (fixed4 color) - decodes color from Unity lightmap (RGBM or dLDR depending on platform). 
-fixed3 DecodeLightmap (fixed4 color)：从Unity光照贴图解码颜色（基于平台为RGBM 或dLDR）
-float4 EncodeFloatRGBA (float v) - encodes [0..1) range float into RGBA color, for storage in low precision render target. 
-float4 EncodeFloatRGBA (float v)：为储存低精度的渲染目标，编码[0..1)范围的浮点数到RGBA颜色。
-float DecodeFloatRGBA (float4 enc) - decodes RGBA color into a float. 
-float DecodeFloatRGBA (float4 enc)：解码RGBA颜色到float。
-Similarly, float2 EncodeFloatRG (float v) and float DecodeFloatRG (float2 enc) that use two color channels. 
-同样的，float2 EncodeFloatRG (float v) 和float DecodeFloatRG (float2 enc)使用的是两个颜色通道。
-float2 EncodeViewNormalStereo (float3 n) - encodes view space normal into two numbers in 0..1 range. 
-float2 EncodeViewNormalStereo (float3 n)：编码视图空间法线到在0到1范围的两个数。
-float3 DecodeViewNormalStereo (float4 enc4) - decodes view space normal from enc4.xy. 
-float3 DecodeViewNormalStereo (float4 enc4)：从enc4.xy解码视图空间法线
-Forward rendering helper functions in UnityCG.cginc
-UnityCG.cginc正向渲染辅助函数
-These functions are only useful when using forward rendering (ForwardBase or ForwardAdd pass types).
+UnityCG.cginc 中的顶点变换函数
+```
+float4 UnityObjectToClipPos(float3 pos)  将点从对象空间转换为相机的齐次坐标中的剪辑空间。这等效于mul(UNITY_MATRIX_MVP, float4(pos, 1.0))，应该在其位置使用。
+float3 UnityObjectToViewPos(float3 pos)  将点从对象空间转换到视图空间。这相当于mul(UNITY_MATRIX_MV, float4(pos, 1.0)).xyz，应该在它的位置使用。
 
+```
 
+UnityCG.cginc 中的通用辅助函数
+```
+float3 WorldSpaceViewDir (float4 v)：返回从给定对象空间顶点位置朝向相机的世界空间方向（未标准化）。  
+float3 ObjSpaceViewDir (float4 v)：返回从给定对象空间顶点位置朝向相机的对象空间方向（未标准化）。  
+float2 ParallaxOffset (half h, half height, half3 viewDir)：计算视差法线贴图的 UV 偏移。  
+fixed Luminance (fixed3 c)：将颜色转换为亮度（灰度）。  
+fixed3 DecodeLightmap (fixed4 color)：从Unity光照贴图解码颜色（基于平台为RGBM 或dLDR）。  
+float4 EncodeFloatRGBA (float v)：为储存低精度的渲染目标，编码[0..1)范围的浮点数到RGBA颜色。  
+float DecodeFloatRGBA (float4 enc)：解码RGBA颜色到float。  
+float2 EncodeFloatRG (float v) 和float DecodeFloatRG (float2 enc) 使用的是两个颜色通道。  
+float2 EncodeViewNormalStereo (float3 n)：将视图空间正常编码为 0..1 范围内的两个数字。  
+float3 DecodeViewNormalStereo (float4 enc4)：从enc4.xy解码视图空间法线。  
+```
+
+UnityCG.cginc 中的前向渲染辅助函数
+```
+float3 WorldSpaceLightDir (float4 v) 输入一个模型空间中的顶点位置，返回世界空间中从该点到光源的光照方向（未标准化）。  
+float3 ObjSpaceLightDir (float4 v)  输入一个模型空间中的顶点位置，返回模型空间中从该点到光源的光照方向（未标准化）。  
+float3 Shade4PointLights (...)  计算来自四个点光源的照明，将光数据紧密打包到向量中。前向渲染使用它来计算逐顶点光照。  
+```
+
+UnityCG.cginc 中的屏幕空间辅助函数
+```
+float4 ComputeScreenPos (float4 clipPos) 计算纹理坐标以进行屏幕空间映射纹理样本。输入是裁剪空间位置。  
+float4 ComputeGrabScreenPos (float4 clipPos) 计算用于采样GrabPass纹理的纹理坐标。输入是裁剪空间位置。  
+```
+UnityCG.cginc 中的顶点光照辅助函数
+```
+float3 ShadeVertexLights (float4 vertex, float3 normal)  在给定对象空间位置和法线的情况下，计算来自四个每个顶点灯​​光和环境的照明。  
+```

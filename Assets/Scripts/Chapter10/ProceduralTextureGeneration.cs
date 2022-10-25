@@ -93,31 +93,31 @@ public class ProceduralTextureGeneration : MonoBehaviour {
 	private Texture2D _GenerateProceduralTexture() {
 		Texture2D proceduralTexture = new Texture2D(textureWidth, textureWidth);
 
-		// The interval between circles
+		// 圆圈之间的间隔
 		float circleInterval = textureWidth / 4.0f;
-		// The radius of circles
+		// 圆的半径
 		float radius = textureWidth / 10.0f;
-		// The blur factor
+		// 模糊因子
 		float edgeBlur = 1.0f / blurFactor;
 
 		for (int w = 0; w < textureWidth; w++) {
 			for (int h = 0; h < textureWidth; h++) {
-				// Initalize the pixel with background color
+				// 使用背景颜色初始化像素
 				Color pixel = backgroundColor;
 
-				// Draw nine circles one by one
+				//一个接一个画九个圆
 				for (int i = 0; i < 3; i++) {
 					for (int j = 0; j < 3; j++) {
-						// Compute the center of current circle
+						// 计算当前圆的中心
 						Vector2 circleCenter = new Vector2(circleInterval * (i + 1), circleInterval * (j + 1));
 
-						// Compute the distance between the pixel and the center
+						// 计算像素与中心之间的距离
 						float dist = Vector2.Distance(new Vector2(w, h), circleCenter) - radius;
 
-						// Blur the edge of the circle
+						// 模糊圆的边缘
 						Color color = _MixColor(circleColor, new Color(pixel.r, pixel.g, pixel.b, 0.0f), Mathf.SmoothStep(0f, 1.0f, dist * edgeBlur));
 
-						// Mix the current color with the previous color
+						// 将当前颜色与先前颜色混合
 						pixel = _MixColor(pixel, color, color.a);
 					}
 				}
