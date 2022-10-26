@@ -3,7 +3,7 @@
 
 
 // 半兰伯特模型 漫反射
-Shader "Unity Shaders Book/Chapter 6/Half Lambert" 
+Shader "Unity Shaders Book/Chapter 6/Half Lambert"
 {
     Properties
     {
