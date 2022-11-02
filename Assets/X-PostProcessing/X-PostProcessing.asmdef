@@ -1,0 +1,16 @@
+{
+    "name": "X-PostProcessing",
+    "rootNamespace": "",
+    "references": [
+        "GUID:66eb475108e7f8b4192f0aeebc1f30e2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
