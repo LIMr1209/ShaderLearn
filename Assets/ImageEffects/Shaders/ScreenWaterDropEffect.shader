@@ -1,14 +1,6 @@
 ﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-//-----------------------------------------------【Shader脚本说明】---------------------------------------------------
-//		 屏幕水幕特效的实现代码-Shader脚本部分
-//      2015年10月  Created by  浅墨
-//      更多内容或交流，请访问浅墨的博客：http://blog.csdn.net/poem_qianmo
-//---------------------------------------------------------------------------------------------------------------------
-
-Shader "浅墨Shader编程/Volume9/ScreenWaterDropEffect"
+Shader "Hidden/ScreenWaterDrop"
 {
-	//------------------------------------【属性值】------------------------------------
 	Properties
 	{
 		//主纹理
@@ -27,28 +19,21 @@ Shader "浅墨Shader编程/Volume9/ScreenWaterDropEffect"
 		_Distortion ("_Distortion", Range(0.0, 1.0)) = 0.87
 	}
 
-	//------------------------------------【唯一的子着色器】------------------------------------
 	SubShader
 	{
 		Pass
 		{
-			//设置深度测试模式:渲染所有像素.等同于关闭透明度测试（AlphaTest Off）
 			ZTest Always
 			
-			//===========开启CG着色器语言编写模块===========
 			CGPROGRAM
 
-			//编译指令:告知编译器顶点和片段着色函数的名称
 			#pragma vertex vert
 			#pragma fragment frag
 			#pragma fragmentoption ARB_precision_hint_fastest
-			//编译指令: 指定着色器编译目标为Shader Model 3.0
 			#pragma target 3.0
 
-			//包含辅助CG头文件
 			#include "UnityCG.cginc"
 
-			//外部变量的声明
 			uniform sampler2D _MainTex;
 			uniform sampler2D _ScreenWaterDropTex;
 			uniform float _CurTime;
@@ -127,7 +112,6 @@ Shader "浅墨Shader编程/Volume9/ScreenWaterDropEffect"
 
 			}
 
-			//===========结束CG着色器语言编写模块===========
 			ENDCG
 		}
 	}
