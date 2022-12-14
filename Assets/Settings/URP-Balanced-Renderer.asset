@@ -1,0 +1,292 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7752827171872531725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae90755ed03040c4bcbc0d12c5129fa3, type: 3}
+  m_Name: AuroraVignetteRenderVolumeFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+--- !u!114 &-6815738291622283295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 160cb3c6e4a245ad8e1ea6ad7df44747, type: 3}
+  m_Name: OilPaintingRenderVolumeFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+--- !u!114 &-5764319880192983019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62fd66199cd3463d8f6566be38024912, type: 3}
+  m_Name: SharpenRenderVolumeFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+--- !u!114 &-5647134861019358083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2dc07ac2f1845088d5b4c2665185fec, type: 3}
+  m_Name: ScreenWaterDropRenderVolumeFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+--- !u!114 &-5304900049470164547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeffef23602a2344eaf32a835282e384, type: 3}
+  m_Name: CyberpunkRenderVolumeFeatureV1
+  m_EditorClassIdentifier: 
+  m_Active: 1
+--- !u!114 &-3483616671239740138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6764c607537e497b86d0bbf7c5bf561e, type: 3}
+  m_Name: GaussianBlurRenderVolumeFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+--- !u!114 &-3285172142448945847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5936a2d607c146adb7fcc0eba51062d2, type: 3}
+  m_Name: HueRenderVolumeFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+--- !u!114 &-2840644359362083725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44660ac4ece749768fd57cb9c642151a, type: 3}
+  m_Name: FogWithNoiseRenderVolumeFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+--- !u!114 &-2829400828508174700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62fd38e4ce704a74abda24297caab883, type: 3}
+  m_Name: WhiteBalanceRenderVolumeFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+--- !u!114 &-1878332245247344467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62c9c65cf3354c93be831c8bc075510, type: 3}
+  m_Name: SSAO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  m_Shader: {fileID: 4800000, guid: 0849e84e3d62649e8882e9d6f056a017, type: 3}
+  m_Settings:
+    Downsample: 1
+    AfterOpaque: 0
+    Source: 0
+    NormalSamples: 0
+    Intensity: 0.5
+    DirectLightingStrength: 0.25
+    Radius: 0.25
+    SampleCount: 4
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de640fe3d0db1804a85f9fc8f5cadab6, type: 3}
+  m_Name: URP-Balanced-Renderer
+  m_EditorClassIdentifier: 
+  debugShaders:
+    debugReplacementPS: {fileID: 4800000, guid: cf852408f2e174538bcd9b7fda1c5ae7,
+      type: 3}
+  m_RendererFeatures:
+  - {fileID: -1878332245247344467}
+  - {fileID: -7752827171872531725}
+  - {fileID: -5304900049470164547}
+  - {fileID: -3483616671239740138}
+  - {fileID: -3285172142448945847}
+  - {fileID: 5490015524242696947}
+  - {fileID: 3746516343554746699}
+  - {fileID: -5764319880192983019}
+  - {fileID: 6766946085335574315}
+  - {fileID: -2829400828508174700}
+  - {fileID: 4160805550622222052}
+  - {fileID: 4498696886118809823}
+  - {fileID: -6815738291622283295}
+  - {fileID: -2840644359362083725}
+  - {fileID: -5647134861019358083}
+  m_RendererFeatureMap: adc0de57c6d2eee5f39a8a6fc36c6894bdf160f6823561b61665203118b5a7cf4955528f57b968d2f3aadd2d0874304c4ba9c6bac34cfe33150060119c0501b02ba7a59e9c05e95d940693f1eff2bbd8e4a64f789a26be39df804499fb946e3ee177d39522a269a17384016b010194d87d5c3782c358a1b1
+  m_UseNativeRenderPass: 0
+  postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
+  xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
+  shaders:
+    blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
+    copyDepthPS: {fileID: 4800000, guid: d6dae50ee9e1bfa4db75f19f99355220, type: 3}
+    screenSpaceShadowPS: {fileID: 0}
+    samplingPS: {fileID: 4800000, guid: 04c410c9937594faa893a11dceb85f7e, type: 3}
+    stencilDeferredPS: {fileID: 4800000, guid: e9155b26e1bc55942a41e518703fe304, type: 3}
+    fallbackErrorPS: {fileID: 4800000, guid: e6e9a19c3678ded42a3bc431ebef7dbd, type: 3}
+    materialErrorPS: {fileID: 4800000, guid: 5fd9a8feb75a4b5894c241777f519d4e, type: 3}
+    coreBlitPS: {fileID: 4800000, guid: 93446b5c5339d4f00b85c159e1159b7c, type: 3}
+    coreBlitColorAndDepthPS: {fileID: 4800000, guid: d104b2fc1ca6445babb8e90b0758136b,
+      type: 3}
+    cameraMotionVector: {fileID: 4800000, guid: c56b7e0d4c7cb484e959caeeedae9bbf,
+      type: 3}
+    objectMotionVector: {fileID: 4800000, guid: 7b3ede40266cd49a395def176e1bc486,
+      type: 3}
+  m_AssetVersion: 1
+  m_OpaqueLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_TransparentLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_DefaultStencilState:
+    overrideStencilState: 0
+    stencilReference: 0
+    stencilCompareFunction: 8
+    passOperation: 2
+    failOperation: 0
+    zFailOperation: 0
+  m_ShadowTransparentReceive: 1
+  m_RenderingMode: 0
+  m_DepthPrimingMode: 0
+  m_AccurateGbufferNormals: 0
+  m_ClusteredRendering: 0
+  m_TileSize: 32
+  m_IntermediateTextureMode: 1
+--- !u!114 &3746516343554746699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde93a4fb6a84910be87ce17094d3dc7, type: 3}
+  m_Name: SaturationRenderVolumeFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+--- !u!114 &4160805550622222052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e0986c3aae1a54bba9399913fb56cd, type: 3}
+  m_Name: ExecuteCommandBuffers
+  m_EditorClassIdentifier: 
+  m_Active: 1
+--- !u!114 &4498696886118809823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a792646957fa944e90834050ab49ed7, type: 3}
+  m_Name: RenderSelection
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  m_settings:
+    RenderPassEvent: 550
+    PrepassMaterial: {fileID: 2100000, guid: 17d9ca694be06dc44bfcb0e3fa1375f3, type: 2}
+    BlurMaterial: {fileID: 2100000, guid: 83801d353f0527248ac77a7c6c361822, type: 2}
+    CompositeMaterial: {fileID: 2100000, guid: b1a9df132011e41439c60e3ba885ee04, type: 2}
+    OutlineColor: {r: 1, g: 0.16862746, b: 0, a: 1}
+    MeshesCacheName: SelectedMeshes
+    RenderersCacheName: SelectedRenderers
+    CustomRenderersCacheName: CustomOutlineRenderersCache
+    LayerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    OutlineStength: 5
+    BlurSize: 0.7
+--- !u!114 &5490015524242696947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 042aa4c324804a4e86b2d9ab60454411, type: 3}
+  m_Name: RGBSplitRenderVolumeFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+--- !u!114 &6766946085335574315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a4454a12e20496faf9be019d387d687, type: 3}
+  m_Name: TintRenderVolumeFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
