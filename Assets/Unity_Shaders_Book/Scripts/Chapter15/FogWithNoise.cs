@@ -18,7 +18,7 @@ public class FogWithNoise : PostEffectsBase
 
     private Camera myCamera;
 
-    public Camera camera
+    public Camera thisCamera
     {
         get
         {
@@ -39,7 +39,7 @@ public class FogWithNoise : PostEffectsBase
         {
             if (myCameraTransform == null)
             {
-                myCameraTransform = camera.transform;
+                myCameraTransform = thisCamera.transform;
             }
 
             return myCameraTransform;
@@ -72,9 +72,9 @@ public class FogWithNoise : PostEffectsBase
         {
             Matrix4x4 frustumCorners = Matrix4x4.identity;
 
-            float fov = camera.fieldOfView;
-            float near = camera.nearClipPlane;
-            float aspect = camera.aspect;
+            float fov = thisCamera.fieldOfView;
+            float near = thisCamera.nearClipPlane;
+            float aspect = thisCamera.aspect;
 
             float halfHeight = near * Mathf.Tan(fov * 0.5f * Mathf.Deg2Rad);
             Vector3 toRight = cameraTransform.right * halfHeight * aspect;

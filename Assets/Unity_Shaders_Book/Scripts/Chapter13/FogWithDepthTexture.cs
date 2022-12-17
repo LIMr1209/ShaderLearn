@@ -19,7 +19,7 @@ public class FogWithDepthTexture : PostEffectsBase
 
     private Camera myCamera;
 
-    public Camera camera
+    public Camera thisCamera
     {
         get
         {
@@ -40,7 +40,7 @@ public class FogWithDepthTexture : PostEffectsBase
         {
             if (myCameraTransform == null)
             {
-                myCameraTransform = camera.transform;
+                myCameraTransform = thisCamera.transform;
             }
 
             return myCameraTransform;
@@ -56,7 +56,7 @@ public class FogWithDepthTexture : PostEffectsBase
 
     void OnEnable()
     {
-        camera.depthTextureMode |= DepthTextureMode.Depth;
+        thisCamera.depthTextureMode |= DepthTextureMode.Depth;
     }
 
     void OnRenderImage(RenderTexture src, RenderTexture dest)
@@ -67,9 +67,9 @@ public class FogWithDepthTexture : PostEffectsBase
 
             
             // 计算近裁剪屏幕的四个角的向量
-            float fov = camera.fieldOfView;
-            float near = camera.nearClipPlane;
-            float aspect = camera.aspect;
+            float fov = thisCamera.fieldOfView;
+            float near = thisCamera.nearClipPlane;
+            float aspect = thisCamera.aspect;
 
             float halfHeight = near * Mathf.Tan(fov * 0.5f * Mathf.Deg2Rad);
             Vector3 toRight = cameraTransform.right * halfHeight * aspect;

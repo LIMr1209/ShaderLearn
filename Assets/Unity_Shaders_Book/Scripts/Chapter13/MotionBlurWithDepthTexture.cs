@@ -19,7 +19,7 @@ public class MotionBlurWithDepthTexture : PostEffectsBase
 
     private Camera myCamera;
 
-    public Camera camera
+    public Camera thisCamera
     {
         get
         {
@@ -38,10 +38,10 @@ public class MotionBlurWithDepthTexture : PostEffectsBase
 
     void OnEnable()
     {
-        camera.depthTextureMode |= DepthTextureMode.Depth;
+        thisCamera.depthTextureMode |= DepthTextureMode.Depth;
 
         // projectionMatrix 投影矩阵  worldToCameraMatrix 从世界转换到相机空间的矩阵,  视角矩阵
-        previousViewProjectionMatrix = camera.projectionMatrix * camera.worldToCameraMatrix;
+        previousViewProjectionMatrix = thisCamera.projectionMatrix * thisCamera.worldToCameraMatrix;
     }
 
     void OnRenderImage(RenderTexture src, RenderTexture dest)
@@ -52,7 +52,7 @@ public class MotionBlurWithDepthTexture : PostEffectsBase
 
             material.SetMatrix("_PreviousViewProjectionMatrix", previousViewProjectionMatrix);
             // 当前帧的 视角*投影矩阵
-            Matrix4x4 currentViewProjectionMatrix = camera.projectionMatrix * camera.worldToCameraMatrix;
+            Matrix4x4 currentViewProjectionMatrix = thisCamera.projectionMatrix * thisCamera.worldToCameraMatrix;
             Matrix4x4 currentViewProjectionInverseMatrix = currentViewProjectionMatrix.inverse; // 逆矩阵
             material.SetMatrix("_CurrentViewProjectionInverseMatrix", currentViewProjectionInverseMatrix);
             previousViewProjectionMatrix = currentViewProjectionMatrix;

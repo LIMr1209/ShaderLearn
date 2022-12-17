@@ -19,12 +19,12 @@ public class PostEffectsBase : MonoBehaviour
     // 检查资源和条件是否满足
     protected bool CheckSupport()
     {
-        // 检查 此平台是否支持支持图像效果或渲染纹理  过时
-        if (SystemInfo.supportsImageEffects == false || SystemInfo.supportsRenderTextures == false)
-        {
-            Debug.LogWarning("This platform does not support image effects or render textures.");
-            return false;
-        }
+        // // 检查 此平台是否支持支持图像效果或渲染纹理  过时
+        // if (SystemInfo.supportsImageEffects == false || SystemInfo.supportsRenderTextures == false)
+        // {
+        //     Debug.LogWarning("This platform does not support image effects or render textures.");
+        //     return false;
+        // }
 
         return true;
     }

@@ -1,11 +1,14 @@
 {
-    "name": "X-PostProcessing",
+    "name": "X-PostProcessingEditor",
     "rootNamespace": "",
     "references": [
-        "Unity.Postprocessing.Runtime",
-        "Unity.Postprocessing.Editor"
+        "GUID:e0036425a3492fe488aa03af7663fcd1",
+        "GUID:a35efad8797223d499f8c68b1f545dbc",
+        "GUID:d60799ab2a985554ea1a39cd38695018"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

@@ -123,7 +123,7 @@ Shader "Hidden/ImageEffects/SunShafts"
         #if UNITY_UV_STARTS_AT_TOP
         half2 vec = _SunPosition.xy - i.texcoord1.xy;
         #else
-		half2 vec = _SunPosition.xy - i.uv.xy;		
+		half2 vec = _SunPosition.xy - i.texcoord.xy;		
         #endif
         half dist = saturate(_SunPosition.w - length(vec.xy));
 
