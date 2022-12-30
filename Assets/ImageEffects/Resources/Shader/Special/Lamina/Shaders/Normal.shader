@@ -3,12 +3,12 @@ Shader "Hidden/Special/Lamina/Normal"
     Properties
     {
         _Alpha("Alpha (default = 1)", range(0,1)) = 1
-        _Direction("Direction", Vector) = (1, 1, 1)
+        [ShowAsVector3]_Direction("Direction", Vector) = (1, 1, 1, 0)
 
         [Header(Blending)]
         [Enum(UnityEngine.Rendering.BlendMode)]_SrcBlend("_SrcBlend (default = SrcAlpha)", Int) = 5 // 5 = SrcAlpha
         [Enum(UnityEngine.Rendering.BlendMode)]_DstBlend("_DstBlend (default = OneMinusSrcAlpha)", Int) = 10 // 10 = OneMinusSrcAlpha
-        [Enum(UnityEngine.Rendering.BlendOp)]_BlendOp("_BlendOp (default = Add)", Int) = 0 // 0 = Add
+        [Enum(BlendModeEnum)]_BlendOp("_BlendOp (default = Add)", Int) = 0 // 0 = Add
     }
     SubShader
     {

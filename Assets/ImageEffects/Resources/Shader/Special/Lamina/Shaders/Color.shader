@@ -7,7 +7,7 @@ Shader "Hidden/Special/Lamina/Color"
         [Header(Blending)]
         [Enum(UnityEngine.Rendering.BlendMode)]_SrcBlend("_SrcBlend (default = SrcAlpha)", Int) = 5 // 5 = SrcAlpha
         [Enum(UnityEngine.Rendering.BlendMode)]_DstBlend("_DstBlend (default = OneMinusSrcAlpha)", Int) = 10 // 10 = OneMinusSrcAlpha
-        [Enum(UnityEngine.Rendering.BlendOp)]_BlendOp("_BlendOp (default = Add)", Int) = 0 // 0 = Add
+        [Enum(BlendModeEnum)]_BlendOp("_BlendOp (default = Add)", Int) = 0 // 0 = Add
     }
     SubShader
     {
