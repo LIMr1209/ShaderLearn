@@ -29,8 +29,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _Cull: 1
-    - _DecalDstBlend: 1
-    - _DecalSrcBlend: 8
+    - _DecalDstBlend: 10
+    - _DecalSrcBlend: 5
     - _FracUVEnable: 0
     - _MulAlphaToRGB: 1
     - _ProjectionAngleDiscardEnable: 0
